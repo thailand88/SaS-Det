@@ -4,7 +4,7 @@
 This repository provides the official implementation of the paper:
 
 > **SaS-Det: Sliced Segmentation Integration and Super-Resolution Reconstruction for Long-Range Small Object Detection in Railway Scenarios**  
-> *[Journal Name] (under review)*
+> *[Nondestructive Testing and Evaluation] (under review)*
 
 ---
 
@@ -36,7 +36,7 @@ The proposed framework leverages **spatial redundancy suppression**, **fine-grai
 ## 🧠 Framework Overview
 
 <p align="center">
-  <img src="1.png" width="800">
+  <img src="fig1.pdf" width="800">
 </p>
 
 *Figure: Overall framework of the proposed SaS-Det for long-range small object detection in railway scenarios.*
