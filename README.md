@@ -36,7 +36,7 @@ The proposed framework leverages **spatial redundancy suppression**, **fine-grai
 ## 🧠 Framework Overview
 
 <p align="center">
-  <img src="fig1.pdf" width="800">
+  <img src="fig1.png" width="800">
 </p>
 
 *Figure: Overall framework of the proposed SaS-Det for long-range small object detection in railway scenarios.*
