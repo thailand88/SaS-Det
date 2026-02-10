@@ -1,60 +1,59 @@
-Dynamic Swin-CRM
-# Dynamic Swin-CRM for Contrastive Self-Supervised Train Driver Fatigue Detection
+# SaS-Det
+# SaS-Det: Sliced Segmentation Integration and Super-Resolution Reconstruction for Long-Range Small Object Detection in Railway Scenarios
 
 This repository provides the official implementation of the paper:
 
-> **A Dynamic Swin-CRM–Based Contrastive Self-Supervised Framework for Train Driver Fatigue Detection**  
-> *IEEE Internet of Things Journal (under review)*
+> **SaS-Det: Sliced Segmentation Integration and Super-Resolution Reconstruction for Long-Range Small Object Detection in Railway Scenarios**  
+> *[Journal Name] (under review)*
 
 ---
 
 ## 📌 Overview
 
-Driver fatigue poses a critical threat to railway transportation safety, especially in long-duration train driving scenarios.  
-This project presents a **vision-based driver fatigue detection framework** built upon a **Dynamic Swin-CRM contrastive self-supervised learning strategy**, aiming to alleviate the limitations of feature representation capability and the strong reliance on annotated data in existing approaches.
+In long-range railway imaging scenarios, small objects are constrained by extremely low pixel proportions and significant image degradation, which often leads to irreversible loss of structural and textural information during feature downsampling and poses substantial challenges for accurate detection.  
+This project presents a **unified framework for long-range small object detection** (termed SaS-Det), which integrates SSI (Sliced Segmentation Integration), LRST-ESRGAN (Super-Resolution Reconstruction), and STG-YOLO11 in a unified manner.  
 
-The proposed framework leverages **self-supervised and contrastive learning** to exploit unlabeled data for learning discriminative fatigue-related visual representations.  
-A **deformable window masking mechanism** is introduced to enhance hierarchical and multi-scale feature modeling.  
-In addition, a **fatigue mathematical generation model** is incorporated to characterize the temporal evolution of fatigue and provide **continuous, physiologically plausible supervisory signals**.
+The proposed framework leverages **spatial redundancy suppression**, **fine-grained detail restoration**, and **multi-scale contextual modeling enhancement** to mitigate feature degradation of small objects under long-range imaging conditions, thereby improving the discriminability and robustness of sparse small object detection in railway scenarios.
 
 ---
 
 ## ✨ Key Contributions
 
-- **Dynamic Swin-CRM Backbone**  
-  A Dynamic Swin-CRM architecture with a *Deformable Window Masking Mechanism (DWMM)* is designed to improve hierarchical and multi-scale modeling of fatigue patterns.
+- **Sliced Segmentation Integration (SSI)**  
+  A SSI module is designed to suppress spatial redundancy in long-range railway images, focusing computational resources on small object regions and reducing irrelevant background interference.
 
-- **Contrastive Self-Supervised Learning Framework**  
-  A contrastive self-supervised learning strategy is developed to reduce dependence on labeled data and enhance generalization across different drivers and operating conditions.
+- **LRST-ESRGAN Super-Resolution Reconstruction**  
+  A LRST-ESRGAN model is developed to restore fine-grained structural and textural information of small objects, alleviating irreversible feature loss caused by downsampling.
 
-- **Train Driver Fatigue Dataset**  
-  A multi-posture, multi-level train driver fatigue dataset is constructed to support systematic evaluation and future research.
+- **STG-YOLO11 Detection Backbone**  
+  An enhanced STG-YOLO11 architecture is proposed to strengthen multi-scale contextual modeling, improving the detection accuracy of sparse small objects in railway scenarios.
 
-- **Fatigue Mathematical Generation Model**  
-  A fatigue generation model is proposed to provide continuous and physiologically plausible fatigue supervision for training and evaluation.
+- **Long-Range Railway Small Object Dataset**  
+  A dedicated long-range railway small object detection dataset is constructed to support systematic evaluation and future research in this field.
 
 ---
 
 ## 🧠 Framework Overview
 
 <p align="center">
-  < img src="1.png" width="800">
-</p >
+  <img src="1.png" width="800">
+</p>
 
-*Figure: Overall framework of the proposed Dynamic Swin-CRM–based contrastive self-supervised fatigue detection method.*
+*Figure: Overall framework of the proposed SaS-Det for long-range small object detection in railway scenarios.*
 
 ---
 
 ## 📊 Experimental Evaluation
 
 The proposed framework is evaluated using:
-- **Leave-One-Subject-Out (LOSO) cross-subject validation**
-- **Long-duration train driving analysis**
+- **Constructed long-range railway small object detection dataset**
+- **Cross-dataset validation (BDD100K, SRSDD-V1.0, AI-TOD)**
 
 Experimental results demonstrate:
-- Reliable and consistent detection performance  
-- Favorable generalization across different drivers  
-- Robustness under varying operating conditions  
+- Approximately 21% improvement in mAP@0.5 compared with the YOLO11s baseline
+- Consistent gains in Precision, Recall, and other evaluation metrics
+- Strong generalization capability across diverse scenes and data distributions
+- Stable performance for sparse small object detection under long-range imaging conditions
 
 Detailed quantitative results and ablation studies can be found in the paper.
 
@@ -63,10 +62,10 @@ Detailed quantitative results and ablation studies can be found in the paper.
 ## 📁 Dataset
 
 The dataset contains:
-- Multiple train drivers
-- Multiple driving postures
-- Multiple fatigue levels
-- Long-duration continuous driving recordings
+- Long-range railway imaging scenes
+- Diverse small objects (typical railway scenario targets)
+- Multi-scale and multi-degradation image samples
+- Annotated labels for small object detection
 
 > ⚠️ Due to privacy and institutional regulations, the dataset is **not publicly downloadable** at this stage.  
 > Please contact the authors for academic collaboration.
@@ -81,6 +80,8 @@ The dataset contains:
 - torchvision  
 - timm  
 - numpy, scipy, opencv-python  
+- ultralytics (for YOLO11)
+- scikit-image (for super-resolution)
 
 Install dependencies:
 ```bash
